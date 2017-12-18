@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Vue.js</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <!-- root是根容器 -->
+  <div id="root">
+    <h1>键盘 Events</h1>
+    <label for="">姓名: </label>
+    <input type="text" v-on:keyup="logName($event)">
+    <label for="">年龄: </label>
+    <!-- enter修饰符，当按回车时才触发 -->
+    <input type="text" v-on:keyup.enter="logAge($event)">
+  </div>
+</body>
+<script src="./vue.js"></script>
+<script src="./app3.js"></script>
+</html>

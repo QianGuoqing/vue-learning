@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Vue.js</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <!-- root是根容器 -->
+  <div id="root">
+    <h1>Events</h1>
+
+    <!-- v-on:的形式绑定事件 -->
+    <button v-on:click="add(1)">涨一岁</button>
+    <!-- @xxx v-on:的简写形式 -->
+    <button @click="subtract(1)">减一岁</button>
+    <button v-on:dblclick="add(10)">加十岁</button>
+    <button @dblclick="subtract(10)">减十岁</button>
+    <p>My age is {{ age }}</p>
+
+    <div id="canvas" v-on:mousemove="updateXY($event)"></div>
+    {{ x }} - {{ y }}
+
+    <hr>
+
+    <!-- once 只执行一次 -->
+    <button v-on:click.once="add(1)">涨一岁</button>
+    <!-- prevent: 阻止默认事件 -->
+    <button @click.prevent="subtract(1)">减一岁</button>
+    <!-- stop: 阻止冒泡 -->
+    <button v-on:dblclick.stop="add(10)">加十岁</button>
+    <!-- self: 只在该元素本身上才能触发 -->
+    <button @dblclick.self="subtract(10)">减十岁</button>
+    <p>My age is {{ age }}</p>
+  </div>
+
+  <hr>
+
+  
+</body>
+<script src="./vue.js"></script>
+<script src="./app2.js"></script>
+</html>

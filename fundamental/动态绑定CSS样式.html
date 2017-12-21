@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    span {
+      background: red;
+      display: inline-block;
+      padding: 10px;
+      color: #fff;
+      margin: 10px 0;
+    }
+
+    .changeColor span {
+      background-color: green;
+    }
+
+    .changeLength span::after {
+      content: 'length';
+      margin-left: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div id="app">
+    <h1>动态CSS class</h1>
+    <h2></h2>示例1</h2>
+    <div @click="changeColor = !changeColor" :class="{changeColor: changeColor}">
+      <span>Henry</span>
+    </div>
+
+    <h2>示例2</h2>
+    <div :class="compClasses">
+      <span>Henry</span>
+    </div>
+
+  </div>
+</body>
+<script src="./vue.js"></script>
+<script>
+  new Vue({
+    el: '#app',
+    data: {
+      changeColor: true,
+      changeLength: true
+    },
+    computed: {
+      compClasses() {
+        return {
+          changeColor: this.changeColor
+        }
+      }
+    }
+  })
+</script>
+</html>

@@ -1,17 +1,21 @@
 <template>
   <div id="app">
-    <test msg="这是新的属性"></test>
+    <router-link to="/" exact>home</router-link>
+    <router-link to="/test">test</router-link>
+    <router-view></router-view>
   </div>
 </template>
 
 <script>
 
 import test from './components/test'
+import users from './components/users'
 
 export default {
   name: 'app',
   components: {
-    test
+    test,
+    users
   }
 }
 </script>

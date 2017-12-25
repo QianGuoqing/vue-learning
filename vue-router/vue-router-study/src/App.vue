@@ -1,0 +1,34 @@
+<template>
+  <div id="app">
+    <div class="nav-box">
+      <ul class="nav">
+        <router-link to="/" exact tag="li" event="mouseover">
+          <i class="fa fa-home"></i>
+          <span>home</span>
+        </router-link>
+        <li>
+          <router-link :to="{path: '/document'}">Document</router-link>
+        </li>
+        <li>
+          <router-link to="about">About</router-link>
+        </li>
+      </ul>
+    </div>
+    <router-view class="center"></router-view>
+  </div>
+</template>
+
+<script>
+export default {
+  name: 'app',
+  data () {
+    return {
+      index: '/home'
+    }
+  }
+}
+</script>
+
+<style>
+
+</style>

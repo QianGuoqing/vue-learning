@@ -12,8 +12,12 @@
         <li>
           <router-link to="about">About</router-link>
         </li>
+        <li>
+          <router-link to="/user">User</router-link>
+        </li>
       </ul>
     </div>
+    <router-view name="slider" class="center"></router-view>
     <router-view class="center"></router-view>
   </div>
 </template>

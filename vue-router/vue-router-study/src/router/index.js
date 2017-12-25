@@ -8,12 +8,28 @@ import NotFound from '../components/404.vue'
 import Study from '../views/study.vue'
 import Work from '../views/work.vue'
 import Hobby from '../views/hobby.vue'
+import Slider from '../views/slider.vue'
+import User from '../components/user.vue'
 
 Vue.use(VueRouter)
 
 const router = new VueRouter({
   mode: 'history',
   linkActiveClass: 'is-active',
+  scrollBehavior(to, from, savePosition) {
+    console.log(to) // 要进入的目标路由对象
+    console.log(from) // 离开的路由对象
+    console.log(savePosition) // 记录的滚动条的目标
+
+    if (savePosition) {
+      return savePosition
+    } else {
+      return {
+        x: 0,
+        y: 0
+      }
+    }
+  },
   routes: [
     {
       path: '/',
@@ -49,7 +65,15 @@ const router = new VueRouter({
     {
       path: '/document',
       name: 'document',
-      component: Document
+      components: {
+        default: Document,
+        slider: Slider
+      }
+    },
+    {
+      path: '/user/:userId?',
+      name: 'user',
+      component: User
     },
     {
       path: '*',

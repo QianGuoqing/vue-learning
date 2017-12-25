@@ -96,4 +96,9 @@ const router = new VueRouter({
   ]
 })
 
+router.beforeEach((to, from, next) => {
+  console.log('beforeEach')
+  next() // 要进入导航，必须加上这个函数
+})
+
 export default router
